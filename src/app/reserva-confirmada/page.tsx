@@ -16,7 +16,6 @@ import {
   Download,
   ArrowLeft,
   ShieldCheck,
-  Anchor,
 } from 'lucide-react';
 
 function ConfirmationContent() {
@@ -25,14 +24,16 @@ function ConfirmationContent() {
   const reference =
     searchParams.get('reference') || searchParams.get('ref') || 'DEMO-TUC-001';
   const guestName = searchParams.get('name') || 'Valeria Morales (Demo VIP)';
-  const email = searchParams.get('email') || 'valeria@ejemplo.com';
-  const phone = searchParams.get('phone') || '+506 8888-8888';
-  const tourTitle = searchParams.get('tour') || 'Sunset Volcano Experience';
+  const email = searchParams.get('email') || 'info@catamarantucanarenalcr.com';
+  const phone = searchParams.get('phone') || '+506 8471-9595';
+  const tourTitle =
+    searchParams.get('tour') ||
+    'Tour Regular Fin de Semana (Sábados y Domingos)';
   const date =
     searchParams.get('date') ||
     new Date(Date.now() + 86400000).toISOString().split('T')[0];
   const guests = searchParams.get('guests') || '2';
-  const amount = searchParams.get('amount') || '201.14';
+  const amount = searchParams.get('amount') || '146.90';
   const currency = searchParams.get('currency') || 'USD';
   const isDemo =
     searchParams.get('mode') === 'demo' || reference.startsWith('DEMO-');
@@ -45,7 +46,7 @@ function ConfirmationContent() {
   return (
     <main className="min-h-screen bg-[#07110e] text-stone-100 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto space-y-8">
-        {/* Navegación superior */}
+        {/* Navegación superior con Logo Original */}
         <div className="flex items-center justify-between">
           <Link
             href="/"
@@ -54,8 +55,12 @@ function ConfirmationContent() {
             <ArrowLeft className="w-4 h-4" /> Volver al inicio
           </Link>
 
-          <div className="flex items-center gap-2">
-            <Anchor className="w-4 h-4 text-amber-400" />
+          <div className="flex items-center gap-2.5">
+            <img
+              src="/images/tucan/logo.webp"
+              alt="Logo Catamarán Tucán Arenal"
+              className="w-9 h-9 rounded-lg bg-white p-0.5 object-contain"
+            />
             <span className="font-serif text-sm tracking-wider text-white">
               CATAMARÁN TUCÁN ARENAL
             </span>
@@ -86,7 +91,7 @@ function ConfirmationContent() {
             Pago Aprobado · Reserva Confirmada
           </span>
           <h1 className="text-3xl sm:text-5xl font-serif text-white">
-            ¡Bienvenido a bordo, {guestName.split(' ')[0]}!
+            ¡Estamos listos para zarpar, {guestName.split(' ')[0]}!
           </h1>
           <p className="text-sm sm:text-base text-stone-300 max-w-xl mx-auto">
             Hemos enviado una copia de tu pase de abordar digital al WhatsApp{' '}
@@ -95,15 +100,21 @@ function ConfirmationContent() {
           </p>
         </div>
 
-        {/* Tarjeta Boarding Pass / Voucher Digital con QR */}
+        {/* Tarjeta Boarding Pass / Voucher Digital con QR y Foto Real */}
         <div className="rounded-3xl bg-stone-900/90 border border-white/15 overflow-hidden shadow-2xl grid grid-cols-1 md:grid-cols-12">
-          {/* Información del Zarpe (8 cols) */}
           <div className="md:col-span-8 p-6 sm:p-8 flex flex-col justify-between space-y-6 border-b md:border-b-0 md:border-r border-dashed border-white/15">
             <div className="space-y-4">
               <div className="flex flex-wrap items-center justify-between gap-2">
-                <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                  Pase de Abordar Oficial
-                </span>
+                <div className="flex items-center gap-2">
+                  <img
+                    src="/images/tucan/logo.webp"
+                    alt="Catamarán Tucán Arenal"
+                    className="w-7 h-7 rounded bg-white p-0.5 object-contain"
+                  />
+                  <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                    Pase de Abordar Oficial
+                  </span>
+                </div>
                 <span className="text-xs font-mono text-stone-400">
                   REF: <strong className="text-amber-400 text-sm">{reference}</strong>
                 </span>
@@ -114,14 +125,14 @@ function ConfirmationContent() {
                   {tourTitle}
                 </h2>
                 <p className="text-xs text-stone-400 mt-1">
-                  Lago Arenal, La Fortuna de San Carlos, Costa Rica
+                  Incluye: Almuerzo, Toboganes, Rampas de Clavados, Kayaks, Banana, Música con DJ y Karaoke (3.5 horas aprox.)
                 </p>
               </div>
 
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2">
                 <div className="p-3.5 rounded-2xl bg-stone-950/70 border border-white/10">
                   <span className="text-[11px] text-stone-400 flex items-center gap-1.5">
-                    <Calendar className="w-3.5 h-3.5 text-amber-400" /> Fecha
+                    <Calendar className="w-3.5 h-3.5 text-amber-400" /> Fecha de Zarpe
                   </span>
                   <span className="text-sm font-bold text-white block mt-1">
                     {date}
@@ -130,10 +141,10 @@ function ConfirmationContent() {
 
                 <div className="p-3.5 rounded-2xl bg-stone-950/70 border border-white/10">
                   <span className="text-[11px] text-stone-400 flex items-center gap-1.5">
-                    <Clock className="w-3.5 h-3.5 text-amber-400" /> Check-in Muelle
+                    <Clock className="w-3.5 h-3.5 text-amber-400" /> Salida Oficial
                   </span>
                   <span className="text-sm font-bold text-white block mt-1">
-                    20 min antes
+                    10:00 AM (Muelle)
                   </span>
                 </div>
 
@@ -142,7 +153,7 @@ function ConfirmationContent() {
                     <Users className="w-3.5 h-3.5 text-amber-400" /> Pasajeros
                   </span>
                   <span className="text-sm font-bold text-white block mt-1">
-                    {guests} Huéspedes
+                    {guests} Personas
                   </span>
                 </div>
               </div>
@@ -153,10 +164,10 @@ function ConfirmationContent() {
                 <MapPin className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                 <div>
                   <span className="font-semibold text-white block">
-                    Punto de Embarque: Muelle Principal Lago Arenal
+                    Punto de Embarque: Puerto San Luis, Tilarán, Guanacaste
                   </span>
                   <span className="text-stone-400">
-                    A 20 minutos del centro de La Fortuna (Parqueo privado gratuito)
+                    Lago Arenal · Consultas y WhatsApp: +506 8471-9595 / 8393-9411
                   </span>
                 </div>
               </div>
@@ -164,7 +175,9 @@ function ConfirmationContent() {
               <div className="text-left sm:text-right shrink-0">
                 <span className="text-stone-400 block">Total Pagado (Tilopay)</span>
                 <span className="text-lg font-bold text-amber-400">
-                  {currency === 'CRC' ? `₡${Number(amount).toLocaleString('es-CR')} CRC` : `$${amount} USD`}
+                  {currency === 'CRC'
+                    ? `₡${Number(amount).toLocaleString('es-CR')} CRC`
+                    : `$${amount} USD`}
                 </span>
               </div>
             </div>
@@ -181,10 +194,10 @@ function ConfirmationContent() {
             </div>
             <div>
               <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-amber-300">
-                <QrCode className="w-4 h-4" /> Escaneo rápido en muelle
+                <QrCode className="w-4 h-4" /> Escaneo en Puerto San Luis
               </span>
               <p className="text-[11px] text-stone-400 mt-1">
-                Presenta este código desde tu móvil al Capitán al abordar.
+                Presenta este código QR desde tu teléfono antes de abordar el Catamarán Tucán.
               </p>
             </div>
           </div>
@@ -202,15 +215,15 @@ function ConfirmationContent() {
           </button>
 
           <a
-            href={`https://wa.me/50688888888?text=${encodeURIComponent(
-              `¡Hola Catamarán Tucán Arenal! Mi reserva confirmada es la ${reference} a nombre de ${guestName} para el ${date}.`
+            href={`https://wa.me/50684719595?text=${encodeURIComponent(
+              `¡Hola Catamarán Tucán Arenal! Mi reserva confirmada es la ${reference} a nombre de ${guestName} para el ${date} en Puerto San Luis, Tilarán.`
             )}`}
             target="_blank"
             rel="noreferrer"
             className="py-3.5 px-5 rounded-2xl bg-emerald-600/20 border border-emerald-500/40 hover:bg-emerald-600/30 text-xs font-semibold text-emerald-200 flex items-center justify-center gap-2 transition"
           >
             <MessageCircle className="w-4 h-4 text-emerald-400" />
-            Contactar Concierge por WhatsApp
+            WhatsApp Oficial (+506 8471-9595)
           </a>
 
           <Link
@@ -224,7 +237,9 @@ function ConfirmationContent() {
 
         <div className="text-center text-xs text-stone-500 flex items-center justify-center gap-2 pt-2">
           <ShieldCheck className="w-4 h-4 text-emerald-400" />
-          <span>Transacción protegida por Tilopay Costa Rica · Catamarán Tucán Arenal</span>
+          <span>
+            Catamarán Tucán Arenal · info@catamarantucanarenalcr.com · Puerto San Luis, Tilarán, Guanacaste
+          </span>
         </div>
       </div>
     </main>

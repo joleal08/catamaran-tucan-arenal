@@ -27,6 +27,7 @@ import {
   User,
   AlertCircle,
   Loader2,
+  MapPin,
 } from 'lucide-react';
 import {
   TourId,
@@ -43,134 +44,149 @@ const COSTA_RICA_IVA_RATE = 0.13;
 
 export const TOURS_CATALOG: TourOption[] = [
   {
-    id: 'SUNSET_EXPERIENCE',
-    slug: 'atardecer-volcan-arenal',
-    title: 'Sunset Volcano Experience',
-    subtitle: 'Navegación dorada al atardecer frente al coloso Arenal',
-    badge: 'Más reservado',
-    schedule: '3:30 PM – 6:30 PM',
-    duration: '3 horas',
-    adultPriceUsd: 89,
-    childPriceUsd: 55,
-    maxCapacity: 32,
+    id: 'MORNING_BREEZE',
+    slug: 'tour-regular-fin-de-semana-puerto-san-luis',
+    title: 'Tour Regular Fin de Semana (Sábados y Domingos)',
+    subtitle:
+      'Zarpe oficial abierto al público desde Puerto San Luis, Tilarán · 3.5 horas de aventura y naturaleza en el Lago Arenal',
+    badge: 'Abierto al Público · 10:00 AM',
+    schedule: 'Sábados y Domingos · 10:00 AM – 1:30 PM',
+    duration: '3.5 horas aprox.',
+    adultPriceUsd: 65,
+    childPriceUsd: 45,
+    maxCapacity: 150,
     highlights: [
-      'Open bar de coctelería tropical & vinos seleccionados',
-      'Tabla gourmet de quesos, frutas exóticas y bocadillos',
-      'Parada en bahía tranquila con vista panorámica al Volcán',
+      'Almuerzo completo incluido a bordo + venta de bebidas en barra',
+      'Uso de toboganes acuáticos, rampas de clavados, kayaks y banana',
+      'Ambiente festivo y familiar con música con DJ en vivo y karaoke',
     ],
-    image:
-      'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=85',
+    image: '/images/tucan/galeria-1.webp',
   },
   {
-    id: 'MORNING_BREEZE',
-    slug: 'brisa-matutina-lago-arenal',
-    title: 'Morning Emerald Breeze',
-    subtitle: 'Aguas serenas, avistamiento de aves y claridad volcánica',
-    schedule: '9:00 AM – 12:00 PM',
-    duration: '3 horas',
-    adultPriceUsd: 79,
-    childPriceUsd: 49,
-    maxCapacity: 32,
+    id: 'SUNSET_EXPERIENCE',
+    slug: 'grupos-programados-entre-semana',
+    title: 'Tour Grupos Programados (Lunes a Viernes)',
+    subtitle:
+      'Salidas especiales entre semana desde Puerto San Luis para grupos familiares, excursiones y empresas',
+    badge: 'Lunes a Viernes',
+    schedule: 'Lunes a Viernes · Horario a convenir (10:00 AM o 2:00 PM)',
+    duration: '3.5 horas aprox.',
+    adultPriceUsd: 65,
+    childPriceUsd: 45,
+    maxCapacity: 150,
     highlights: [
-      'Café de especialidad de altura, mimosas y jugos naturales',
-      'Equipo de paddleboard y kayak incluido en bahía',
-      'Mayor probabilidad de cumbre despejada del Volcán Arenal',
+      'Almuerzo tradicional incluido + barra con venta de bebidas a bordo',
+      'Acceso total a toboganes, rampas de clavados, kayaks y banana',
+      'Animación con DJ, karaoke y vistas panorámicas del Lago Arenal',
     ],
-    image:
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=85',
+    image: '/images/tucan/catamaran-aerial.webp',
   },
   {
     id: 'PRIVATE_CHARTER',
-    slug: 'charter-privado-lujo',
-    title: 'Exclusive Private Charter',
-    subtitle: 'El catamarán completo en exclusividad para tu grupo o celebración',
-    badge: 'Ultra Luxury',
-    schedule: 'Horario flexible a elección',
-    duration: '3.5 horas',
+    slug: 'charter-privado-catamaran-tucan-150-pax',
+    title: 'Chárter Privado Exclusivo (Hasta 150 Pasajeros)',
+    subtitle:
+      'Reserva la embarcación completa en Puerto San Luis de Tilarán para bodas, eventos corporativos o fiestas privadas',
+    badge: 'Capacidad 150 Pax',
+    schedule: 'Lunes a Domingo · Horario personalizado',
+    duration: '3.5 horas aprox.',
     adultPriceUsd: 0,
     childPriceUsd: 0,
     isPrivateCharter: true,
-    flatRateUsd: 1150,
-    maxIncludedGuests: 12,
-    extraGuestPriceUsd: 75,
-    maxCapacity: 30,
+    flatRateUsd: 1450,
+    maxIncludedGuests: 25,
+    extraGuestPriceUsd: 48,
+    maxCapacity: 150,
     highlights: [
-      'Capitán, bartender y anfitrión dedicados exclusivamente a tu grupo',
-      'Menú de autor personalizable y barra premium ilimitada',
-      'Ruta a medida por las islas y bahías secretas del Lago Arenal',
+      'Embarcación Catamarán Tucán Arenal en exclusividad (hasta 150 pasajeros)',
+      'Almuerzo incluido, DJ en vivo, karaoke, toboganes, kayaks y banana',
+      'Atención personalizada saliendo de Puerto San Luis, Tilarán, Guanacaste',
     ],
-    image:
-      'https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=1200&q=85',
+    image: '/images/tucan/galeria-8.webp',
   },
 ];
 
 export const ADDONS_CATALOG: AddonOption[] = [
   {
-    id: 'addon-champagne',
-    code: 'CHAMPAGNE_RESERVE',
-    name: 'Botella Champagne Moët & Chandon + Fresas',
-    description: 'Servida fría en cubitera privada al caer el sol frente al volcán.',
-    priceUsd: 110,
-    pricingType: 'PER_BOOKING',
-    badge: 'Favorito parejas',
+    id: 'addon-drinks-pack',
+    code: 'OPEN_BAR_TUCAN_PACK',
+    name: 'Paquete de Bebidas Ilimitadas a Bordo',
+    description:
+      'Añade coctelería, cervezas nacionales, refrescos y bebidas naturales durante las 3.5 horas del recorrido.',
+    priceUsd: 25,
+    pricingType: 'PER_PERSON',
+    badge: 'Más solicitado',
     category: 'ROMANCE',
   },
   {
     id: 'addon-transfer',
-    code: 'PRIVATE_SUV_TRANSFER',
-    name: 'Transporte Privado Ida y Vuelta (La Fortuna)',
-    description: 'Recogida puerta a puerta en SUV de lujo con A/C y Wi-Fi desde tu hotel.',
-    priceUsd: 65,
+    code: 'PRIVATE_TRANSFER_SAN_LUIS',
+    name: 'Transporte Privado a Puerto San Luis, Tilarán',
+    description:
+      'Traslado ida y vuelta en microbús con A/C desde tu hotel en Tilarán, Nuevo Arenal o La Fortuna hasta el muelle.',
+    priceUsd: 75,
     pricingType: 'PER_BOOKING',
     category: 'TRANSPORT',
   },
   {
-    id: 'addon-lobster',
-    code: 'GOURMET_CEVICHE_BOARD',
-    name: 'Upgrade Gastronómico Mar & Tierra',
-    description: 'Ceviche costarricense de corvina, camarones jumbo y cortes madurados.',
-    priceUsd: 28,
-    pricingType: 'PER_PERSON',
+    id: 'addon-celebration',
+    code: 'VIP_CELEBRATION_TABLE',
+    name: 'Mesa VIP + Queque de Celebración & Decoración',
+    description:
+      'Ideal para cumpleaños, aniversarios o despedidas a bordo con mención especial del DJ y brindis.',
+    priceUsd: 55,
+    pricingType: 'PER_BOOKING',
     category: 'GASTRONOMY',
   },
   {
     id: 'addon-drone',
     code: 'DRONE_PHOTO_PACKAGE',
-    name: 'Sesión Fotográfica Profesional + Video Dron 4K',
-    description: 'Entrega digital el mismo día con 25 fotos editadas y reel aéreo 4K.',
-    priceUsd: 95,
+    name: 'Paquete de Fotos y Video Dron en el Lago Arenal',
+    description:
+      'Cobertura en alta resolución en los toboganes, kayaks, banana y vistas aéreas del catamarán.',
+    priceUsd: 85,
     pricingType: 'PER_BOOKING',
     category: 'PHOTO',
   },
 ];
 
-// Generador de disponibilidad simulada en tiempo real para los próximos 14 días
-function generateUpcomingDates(): DateAvailability[] {
+function generateUpcomingDates(selectedTourId: TourId): DateAvailability[] {
   const result: DateAvailability[] = [];
   const today = new Date();
 
   for (let i = 1; i <= 14; i++) {
     const d = new Date(today);
     d.setDate(today.getDate() + i);
+    const dayOfWeek = d.getDay(); // 0 = Domingo, 6 = Sábado
+    const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
     const iso = d.toISOString().split('T')[0];
-    // Disponibilidad determinista según día
-    const spotsLeft = i % 7 === 0 ? 0 : i % 3 === 0 ? 4 : 18;
+
+    let spotsLeft = 45;
+    if (selectedTourId === 'MORNING_BREEZE' && !isWeekend) {
+      // Sábados y domingos abierto al público; entre semana sugerimos modalidad Grupos Programados pero permitimos reservar en demo
+      spotsLeft = 25;
+    } else if (i % 5 === 0) {
+      spotsLeft = 12;
+    }
+
     result.push({
       date: iso,
       spotsLeft,
-      status: spotsLeft === 0 ? 'SOLD_OUT' : spotsLeft <= 6 ? 'FEW_LEFT' : 'AVAILABLE',
-      weatherForecast: i % 2 === 0 ? 'Despejado · 27°C' : 'Brisa cálida · 26°C',
+      status: spotsLeft <= 15 ? 'FEW_LEFT' : 'AVAILABLE',
+      weatherForecast: isWeekend
+        ? 'Zarpe Público 10:00 AM'
+        : 'Grupos Programados',
     });
   }
   return result;
 }
 
 const STEPS = [
-  { id: 1, label: 'Experiencia' },
-  { id: 2, label: 'Fecha y Huéspedes' },
-  { id: 3, label: 'Upgrades' },
-  { id: 4, label: 'Pasajero' },
-  { id: 5, label: 'Pago Seguro' },
+  { id: 1, label: 'Modalidad y Horario' },
+  { id: 2, label: 'Fecha y Personas' },
+  { id: 3, label: 'Extras a Bordo' },
+  { id: 4, label: 'Tus Datos' },
+  { id: 5, label: 'Pago Tilopay' },
 ];
 
 export default function BookingWizard() {
@@ -178,11 +194,13 @@ export default function BookingWizard() {
   const [direction, setDirection] = useState<number>(1);
   const [currency, setCurrency] = useState<CurrencyCode>('USD');
 
-  // Estado de la reserva
-  const [selectedTourId, setSelectedTourId] = useState<TourId>('SUNSET_EXPERIENCE');
-  const upcomingDates = useMemo(() => generateUpcomingDates(), []);
+  const [selectedTourId, setSelectedTourId] = useState<TourId>('MORNING_BREEZE');
+  const upcomingDates = useMemo(
+    () => generateUpcomingDates(selectedTourId),
+    [selectedTourId]
+  );
   const [selectedDate, setSelectedDate] = useState<string>(
-    upcomingDates.find((d) => d.status !== 'SOLD_OUT')?.date || upcomingDates[0].date
+    upcomingDates[0]?.date || ''
   );
   const [adults, setAdults] = useState<number>(2);
   const [children, setChildren] = useState<number>(0);
@@ -196,7 +214,6 @@ export default function BookingWizard() {
     specialOccasion: 'NONE',
   });
 
-  // Estado de procesamiento de pago Tilopay
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
@@ -206,11 +223,10 @@ export default function BookingWizard() {
   );
 
   const selectedDateObj = useMemo(
-    () => upcomingDates.find((d) => d.date === selectedDate),
+    () => upcomingDates.find((d) => d.date === selectedDate) || upcomingDates[0],
     [upcomingDates, selectedDate]
   );
 
-  // Cálculos financieros en vivo (USD y CRC con IVA 13%)
   const pricing = useMemo(() => {
     const totalGuests = adults + children;
     let baseExperienceUsd = 0;
@@ -218,11 +234,11 @@ export default function BookingWizard() {
     if (selectedTour.isPrivateCharter && selectedTour.flatRateUsd) {
       const extraGuests = Math.max(
         0,
-        totalGuests - (selectedTour.maxIncludedGuests || 12)
+        totalGuests - (selectedTour.maxIncludedGuests || 25)
       );
       baseExperienceUsd =
         selectedTour.flatRateUsd +
-        extraGuests * (selectedTour.extraGuestPriceUsd || 75);
+        extraGuests * (selectedTour.extraGuestPriceUsd || 48);
     } else {
       baseExperienceUsd =
         adults * selectedTour.adultPriceUsd +
@@ -287,12 +303,7 @@ export default function BookingWizard() {
   const canContinueStep = useMemo(() => {
     if (step === 1) return Boolean(selectedTourId);
     if (step === 2) {
-      const available = selectedDateObj?.spotsLeft ?? 0;
-      return (
-        Boolean(selectedDate) &&
-        adults >= 1 &&
-        pricing.totalGuests <= available
-      );
+      return Boolean(selectedDate) && adults >= 1 && pricing.totalGuests <= 150;
     }
     if (step === 3) return true;
     if (step === 4) {
@@ -302,7 +313,7 @@ export default function BookingWizard() {
       return emailOk && phoneOk && nameOk;
     }
     return true;
-  }, [step, selectedTourId, selectedDate, selectedDateObj, adults, pricing.totalGuests, passenger]);
+  }, [step, selectedTourId, selectedDate, adults, pricing.totalGuests, passenger]);
 
   const handleCheckoutWithTilopay = async () => {
     setIsSubmitting(true);
@@ -330,7 +341,6 @@ export default function BookingWizard() {
         );
       }
 
-      // Redirección al formulario seguro HPP / 3DS de Tilopay
       window.location.href = data.paymentUrl;
     } catch (err: unknown) {
       const message =
@@ -356,20 +366,18 @@ export default function BookingWizard() {
   return (
     <section
       id="reservar"
-      className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-stone-100"
+      className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-stone-100"
     >
-      {/* Cabecera de Confianza + Selector de Moneda */}
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4 border-b border-white/10 pb-6">
         <div>
           <span className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-amber-400 font-semibold mb-2">
-            <Compass className="w-4 h-4" /> Reserva Directa · Confirmación Inmediata
+            <Compass className="w-4 h-4" /> Puerto San Luis, Tilarán, Guanacaste · Reserva Directa
           </span>
           <h2 className="text-3xl sm:text-4xl font-serif tracking-tight text-white">
-            Diseña tu travesía en el Lago Arenal
+            Reserva tu lugar en el Catamarán Tucán Arenal
           </h2>
         </div>
 
-        {/* Conmutador de Moneda USD / CRC */}
         <div className="flex items-center gap-3 self-start md:self-auto bg-stone-900/90 p-1.5 rounded-full border border-white/10">
           <span className="text-xs text-stone-400 pl-3">Moneda:</span>
           {(['USD', 'CRC'] as CurrencyCode[]).map((curr) => (
@@ -389,7 +397,6 @@ export default function BookingWizard() {
         </div>
       </div>
 
-      {/* Stepper de Progreso */}
       <div className="mb-8">
         <div className="grid grid-cols-5 gap-2">
           {STEPS.map((s) => {
@@ -436,11 +443,9 @@ export default function BookingWizard() {
         </div>
       </div>
 
-      {/* Layout Principal: Wizard Izquierda (8 cols) + Resumen Vivo Derecha (4 cols) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         <div className="lg:col-span-8 bg-stone-900/80 backdrop-blur-xl border border-white/10 rounded-3xl p-6 sm:p-8 shadow-2xl">
           <AnimatePresence mode="wait" custom={direction}>
-            {/* PASO 1: EXPERIENCIA Y HORARIO */}
             {step === 1 && (
               <motion.div
                 key="step-1"
@@ -453,10 +458,10 @@ export default function BookingWizard() {
               >
                 <div>
                   <h3 className="text-2xl font-serif text-white">
-                    1. Elige tu experiencia a bordo
+                    1. Selecciona tu modalidad de zarpe
                   </h3>
                   <p className="text-sm text-stone-400 mt-1">
-                    Cada zarpe incluye barra libre selecta, gastronomía local y vistas ininterrumpidas al Volcán Arenal.
+                    Todos nuestros recorridos inician en <strong>Puerto San Luis de Tilarán, Guanacaste</strong> (3.5 horas aprox.) e incluyen almuerzo, toboganes, rampas de clavados, kayaks, banana, música con DJ y karaoke.
                   </p>
                 </div>
 
@@ -502,18 +507,16 @@ export default function BookingWizard() {
                                     <Crown className="w-4 h-4 text-amber-400" />
                                   )}
                                   <span>{tour.schedule}</span>
-                                  <span>·</span>
-                                  <span>{tour.duration}</span>
                                 </div>
 
                                 <div className="text-right">
                                   {tour.isPrivateCharter ? (
                                     <div>
                                       <span className="text-lg font-bold text-amber-400">
-                                        {formatMoney(tour.flatRateUsd || 1150)}
+                                        {formatMoney(tour.flatRateUsd || 1450)}
                                       </span>
                                       <span className="block text-[11px] text-stone-400">
-                                        Hasta {tour.maxIncludedGuests} personas
+                                        Base hasta {tour.maxIncludedGuests} personas
                                       </span>
                                     </div>
                                   ) : (
@@ -555,7 +558,6 @@ export default function BookingWizard() {
               </motion.div>
             )}
 
-            {/* PASO 2: FECHA Y PASAJEROS */}
             {step === 2 && (
               <motion.div
                 key="step-2"
@@ -568,18 +570,16 @@ export default function BookingWizard() {
               >
                 <div>
                   <h3 className="text-2xl font-serif text-white">
-                    2. Selecciona fecha y número de pasajeros
+                    2. Selecciona fecha y cantidad de pasajeros
                   </h3>
                   <p className="text-sm text-stone-400 mt-1">
-                    Disponibilidad verificada en tiempo real para{' '}
-                    <span className="text-amber-300 font-medium">{selectedTour.title}</span>.
+                    Operamos sábados y domingos a las 10:00 AM abiertos al público y de lunes a viernes para grupos programados (capacidad de hasta 150 pasajeros).
                   </p>
                 </div>
 
-                {/* Selector de Calendario Dinámico */}
                 <div>
                   <label className="block text-xs uppercase tracking-wider text-stone-400 mb-3 flex items-center gap-2">
-                    <CalendarIcon className="w-4 h-4 text-amber-400" /> Próximas salidas disponibles
+                    <CalendarIcon className="w-4 h-4 text-amber-400" /> Fechas próximas disponibles
                   </label>
                   <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-2.5">
                     {upcomingDates.map((item) => {
@@ -588,18 +588,15 @@ export default function BookingWizard() {
                       const dayNum = d.getDate();
                       const monthName = d.toLocaleDateString('es-CR', { month: 'short' });
                       const isSelected = selectedDate === item.date;
-                      const isSoldOut = item.status === 'SOLD_OUT';
+                      const isWeekend = d.getDay() === 0 || d.getDay() === 6;
 
                       return (
                         <button
                           key={item.date}
                           type="button"
-                          disabled={isSoldOut}
                           onClick={() => setSelectedDate(item.date)}
                           className={`p-3 rounded-2xl border text-center transition-all flex flex-col items-center justify-between ${
-                            isSoldOut
-                              ? 'border-white/5 bg-stone-950/30 opacity-40 cursor-not-allowed'
-                              : isSelected
+                            isSelected
                               ? 'border-amber-400 bg-emerald-950/90 text-white shadow-lg ring-1 ring-amber-400'
                               : 'border-white/10 bg-stone-950/60 hover:border-white/30 text-stone-200'
                           }`}
@@ -613,14 +610,12 @@ export default function BookingWizard() {
                           </span>
                           <span
                             className={`mt-2 text-[10px] px-2 py-0.5 rounded-full font-medium ${
-                              isSoldOut
-                                ? 'bg-red-950 text-red-300'
-                                : item.status === 'FEW_LEFT'
-                                ? 'bg-amber-500/20 text-amber-300'
-                                : 'bg-emerald-500/20 text-emerald-300'
+                              isWeekend
+                                ? 'bg-emerald-500/20 text-emerald-300'
+                                : 'bg-amber-500/20 text-amber-300'
                             }`}
                           >
-                            {isSoldOut ? 'Agotado' : `${item.spotsLeft} cupos`}
+                            {isWeekend ? '10:00 AM' : 'Grupos'}
                           </span>
                         </button>
                       );
@@ -628,7 +623,6 @@ export default function BookingWizard() {
                   </div>
                 </div>
 
-                {/* Selector de Pasajeros */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                   <div className="p-5 rounded-2xl bg-stone-950/70 border border-white/10 flex items-center justify-between">
                     <div>
@@ -637,7 +631,7 @@ export default function BookingWizard() {
                         <span className="font-medium text-white">Adultos</span>
                       </div>
                       <span className="text-xs text-stone-400 block mt-0.5">
-                        12+ años ·{' '}
+                        Incluye almuerzo y actividades ·{' '}
                         {selectedTour.isPrivateCharter
                           ? 'Incluido en base'
                           : formatMoney(selectedTour.adultPriceUsd)}
@@ -651,17 +645,10 @@ export default function BookingWizard() {
                       >
                         -
                       </button>
-                      <span className="w-6 text-center font-bold text-lg">{adults}</span>
+                      <span className="w-8 text-center font-bold text-lg">{adults}</span>
                       <button
                         type="button"
-                        onClick={() =>
-                          setAdults(
-                            Math.min(
-                              (selectedDateObj?.spotsLeft || 20) - children,
-                              adults + 1
-                            )
-                          )
-                        }
+                        onClick={() => setAdults(Math.min(150 - children, adults + 1))}
                         className="w-9 h-9 rounded-full border border-amber-400/60 bg-amber-400/10 text-amber-300 flex items-center justify-center text-lg hover:bg-amber-400/20"
                       >
                         +
@@ -673,7 +660,7 @@ export default function BookingWizard() {
                     <div>
                       <span className="font-medium text-white block">Niños (4 – 11 años)</span>
                       <span className="text-xs text-stone-400 block mt-0.5">
-                        Menores de 4 años viajan gratis ·{' '}
+                        Incluye chaleco, almuerzo y toboganes ·{' '}
                         {selectedTour.isPrivateCharter
                           ? 'Incluido en base'
                           : formatMoney(selectedTour.childPriceUsd)}
@@ -687,17 +674,10 @@ export default function BookingWizard() {
                       >
                         -
                       </button>
-                      <span className="w-6 text-center font-bold text-lg">{children}</span>
+                      <span className="w-8 text-center font-bold text-lg">{children}</span>
                       <button
                         type="button"
-                        onClick={() =>
-                          setChildren(
-                            Math.min(
-                              (selectedDateObj?.spotsLeft || 20) - adults,
-                              children + 1
-                            )
-                          )
-                        }
+                        onClick={() => setChildren(Math.min(150 - adults, children + 1))}
                         className="w-9 h-9 rounded-full border border-amber-400/60 bg-amber-400/10 text-amber-300 flex items-center justify-center text-lg hover:bg-amber-400/20"
                       >
                         +
@@ -708,7 +688,6 @@ export default function BookingWizard() {
               </motion.div>
             )}
 
-            {/* PASO 3: EXTRAS / UPGRADES (UPSELLING CON UN CLIC) */}
             {step === 3 && (
               <motion.div
                 key="step-3"
@@ -722,10 +701,10 @@ export default function BookingWizard() {
                 <div>
                   <h3 className="text-2xl font-serif text-white flex items-center gap-2">
                     <Sparkles className="w-6 h-6 text-amber-400" />
-                    3. Eleva tu experiencia (Opcional)
+                    3. Extras y paquetes de bebidas a bordo (Opcional)
                   </h3>
                   <p className="text-sm text-stone-400 mt-1">
-                    Añade detalles memorables con un solo clic. Todo estará listo antes de abordar.
+                    Tu entrada ya incluye almuerzo, toboganes, rampas de clavados, kayaks, banana, música con DJ y karaoke. Añade extras con un clic:
                   </p>
                 </div>
 
@@ -789,7 +768,6 @@ export default function BookingWizard() {
               </motion.div>
             )}
 
-            {/* PASO 4: DATOS DEL PASAJERO PRINCIPAL */}
             {step === 4 && (
               <motion.div
                 key="step-4"
@@ -805,7 +783,7 @@ export default function BookingWizard() {
                     4. Datos del Pasajero Principal
                   </h3>
                   <p className="text-sm text-stone-400 mt-1">
-                    Enviaremos tu pase de abordar digital con código QR por WhatsApp y correo electrónico.
+                    Enviaremos tu confirmación y código QR de abordaje para presentar en Puerto San Luis de Tilarán.
                   </p>
                 </div>
 
@@ -819,7 +797,7 @@ export default function BookingWizard() {
                       <input
                         type="text"
                         required
-                        placeholder="Ej. Valeria Morales"
+                        placeholder="Su nombre aquí"
                         value={passenger.fullName}
                         onChange={(e) =>
                           setPassenger({ ...passenger, fullName: e.target.value })
@@ -831,14 +809,14 @@ export default function BookingWizard() {
 
                   <div>
                     <label className="block text-xs uppercase tracking-wider text-stone-300 mb-2">
-                      WhatsApp (con código de país) *
+                      Teléfono / WhatsApp *
                     </label>
                     <div className="relative">
                       <Phone className="w-4 h-4 text-stone-400 absolute left-4 top-3.5" />
                       <input
                         type="tel"
                         required
-                        placeholder="+506 8888 8888"
+                        placeholder="+506 8471 9595"
                         value={passenger.whatsappPhone}
                         onChange={(e) =>
                           setPassenger({ ...passenger, whatsappPhone: e.target.value })
@@ -857,7 +835,7 @@ export default function BookingWizard() {
                       <input
                         type="email"
                         required
-                        placeholder="valeria@ejemplo.com"
+                        placeholder="correo@ejemplo.com"
                         value={passenger.email}
                         onChange={(e) =>
                           setPassenger({ ...passenger, email: e.target.value })
@@ -869,11 +847,11 @@ export default function BookingWizard() {
 
                   <div>
                     <label className="block text-xs uppercase tracking-wider text-stone-300 mb-2">
-                      Hotel en La Fortuna / Arenal (Opcional)
+                      Procedencia u Hotel (Tilarán / Arenal / La Fortuna)
                     </label>
                     <input
                       type="text"
-                      placeholder="Ej. Nayara Springs / Tabacón"
+                      placeholder="Ej. Tilarán centro / Hotel en Arenal"
                       value={passenger.pickupHotel}
                       onChange={(e) =>
                         setPassenger({ ...passenger, pickupHotel: e.target.value })
@@ -884,11 +862,11 @@ export default function BookingWizard() {
 
                   <div>
                     <label className="block text-xs uppercase tracking-wider text-stone-300 mb-2">
-                      Requerimientos dietéticos o alergias
+                      Información adicional o restricciones alimentarias (Almuerzo)
                     </label>
                     <input
                       type="text"
-                      placeholder="Ej. Vegetariano, sin gluten, alergia a mariscos"
+                      placeholder="Ej. Almuerzo vegetariano, celebración de cumpleaños..."
                       value={passenger.dietaryRequirements}
                       onChange={(e) =>
                         setPassenger({
@@ -903,7 +881,6 @@ export default function BookingWizard() {
               </motion.div>
             )}
 
-            {/* PASO 5: RESUMEN FINAL Y CHECKOUT TILOPAY */}
             {step === 5 && (
               <motion.div
                 key="step-5"
@@ -916,10 +893,10 @@ export default function BookingWizard() {
               >
                 <div>
                   <h3 className="text-2xl font-serif text-white">
-                    5. Verificación y Pago Seguro con Tilopay
+                    5. Confirmación y Pago Seguro con Tilopay
                   </h3>
                   <p className="text-sm text-stone-400 mt-1">
-                    Revisa los detalles de tu reserva antes de proceder al cobro encriptado con 3D-Secure.
+                    Verifica los detalles de tu zarpe desde Puerto San Luis, Tilarán antes de completar tu reserva.
                   </p>
                 </div>
 
@@ -927,13 +904,13 @@ export default function BookingWizard() {
                   <div className="flex flex-wrap justify-between items-center border-b border-white/10 pb-3">
                     <div>
                       <span className="text-xs text-amber-400 uppercase tracking-wider">
-                        Experiencia Seleccionada
+                        Modalidad Seleccionada
                       </span>
                       <h4 className="text-lg font-serif text-white">
                         {selectedTour.title}
                       </h4>
                       <p className="text-xs text-stone-400">
-                        Fecha: {selectedDate} · Horario: {selectedTour.schedule}
+                        Fecha: {selectedDate} · {selectedTour.schedule}
                       </p>
                     </div>
                     <div className="text-right">
@@ -955,22 +932,21 @@ export default function BookingWizard() {
                         {passenger.whatsappPhone} · {passenger.email}
                       </span>
                     </div>
-                    {passenger.dietaryRequirements && (
-                      <div className="sm:col-span-2">
-                        <span className="text-stone-500 block">Notas de Cocina / Dieta:</span>
-                        <span className="text-amber-300">{passenger.dietaryRequirements}</span>
-                      </div>
-                    )}
+                    <div className="sm:col-span-2">
+                      <span className="text-stone-500 block">Punto de Zarpe:</span>
+                      <span className="text-emerald-300 font-medium">
+                        Puerto San Luis, Tilarán, Guanacaste (Lago Arenal)
+                      </span>
+                    </div>
                   </div>
 
-                  {/* Equivalencia transparente en ambas monedas */}
                   <div className="p-4 rounded-xl bg-emerald-950/40 border border-emerald-500/20 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div>
                       <span className="text-xs text-emerald-300 font-medium block">
-                        Total con IVA (13%) incluido
+                        Total con IVA (13%) e inclusiones oficiales
                       </span>
                       <span className="text-xs text-stone-400">
-                        Tipo de cambio oficial referencial: ₡{EXCHANGE_RATE_CRC} / $1 USD
+                        Incluye Almuerzo, Toboganes, Rampas de Clavados, Kayaks, Banana, DJ y Karaoke
                       </span>
                     </div>
                     <div className="text-right">
@@ -1006,7 +982,7 @@ export default function BookingWizard() {
                     <>
                       <Lock className="w-5 h-5" />
                       <span>
-                        Pagar {formatMoney(pricing.totalUsd, currency)} con Tarjeta (Tilopay)
+                        Confirmar y Pagar {formatMoney(pricing.totalUsd, currency)} (Tilopay)
                       </span>
                     </>
                   )}
@@ -1017,14 +993,13 @@ export default function BookingWizard() {
                     <CreditCard className="w-4 h-4 text-amber-400" /> Visa · Mastercard · AMEX
                   </span>
                   <span className="flex items-center gap-1.5">
-                    <ShieldCheck className="w-4 h-4 text-emerald-400" /> Encriptación PCI-DSS 3DS
+                    <ShieldCheck className="w-4 h-4 text-emerald-400" /> WhatsApp Soporte: +506 8471-9595
                   </span>
                 </div>
               </motion.div>
             )}
           </AnimatePresence>
 
-          {/* Barra de Navegación Inferior del Wizard */}
           <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
             {step > 1 ? (
               <button
@@ -1055,17 +1030,24 @@ export default function BookingWizard() {
         {/* COLUMNA DERECHA: RESUMEN EN VIVO STICKY */}
         <aside className="lg:col-span-4 lg:sticky lg:top-8 space-y-4">
           <div className="rounded-3xl bg-stone-900/90 backdrop-blur-xl border border-white/10 overflow-hidden shadow-2xl">
-            <div className="relative h-36">
+            <div className="relative h-40">
               <img
                 src={selectedTour.image}
                 alt={selectedTour.title}
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-stone-900 via-stone-900/40 to-transparent" />
-              <div className="absolute bottom-3 left-5 right-5">
-                <span className="text-[10px] uppercase tracking-widest text-amber-300 font-bold">
+              <div className="absolute top-3 left-4 flex items-center gap-2">
+                <img
+                  src="/images/tucan/logo.webp"
+                  alt="Logo Catamarán Tucán Arenal"
+                  className="w-8 h-8 rounded-full bg-white/90 p-0.5 object-contain"
+                />
+                <span className="text-[10px] uppercase tracking-widest text-amber-300 font-bold drop-shadow">
                   Catamarán Tucán Arenal
                 </span>
+              </div>
+              <div className="absolute bottom-3 left-5 right-5">
                 <h4 className="text-lg font-serif text-white leading-snug">
                   {selectedTour.title}
                 </h4>
@@ -1075,15 +1057,19 @@ export default function BookingWizard() {
             <div className="p-6 space-y-4 text-sm">
               <div className="space-y-2 text-xs text-stone-300 pb-4 border-b border-white/10">
                 <div className="flex justify-between">
-                  <span className="text-stone-400">Fecha de salida:</span>
+                  <span className="text-stone-400">Salida desde:</span>
+                  <span className="font-medium text-amber-300">Puerto San Luis, Tilarán</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-stone-400">Fecha seleccionada:</span>
                   <span className="font-medium text-white">{selectedDate}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-stone-400">Horario:</span>
-                  <span className="font-medium text-white">{selectedTour.schedule}</span>
+                  <span className="text-stone-400">Duración:</span>
+                  <span className="font-medium text-white">{selectedTour.duration}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-stone-400">Huéspedes:</span>
+                  <span className="text-stone-400">Pasajeros:</span>
                   <span className="font-medium text-white">
                     {adults} adulto{adults > 1 ? 's' : ''}
                     {children > 0 ? ` + ${children} niño${children > 1 ? 's' : ''}` : ''}
@@ -1091,13 +1077,12 @@ export default function BookingWizard() {
                 </div>
               </div>
 
-              {/* Desglose de Precios en Vivo */}
               <div className="space-y-2.5 text-xs">
                 <div className="flex justify-between text-stone-300">
                   <span>
                     {selectedTour.isPrivateCharter
                       ? `Chárter Privado (${pricing.totalGuests} pax)`
-                      : `Experiencia base (${pricing.totalGuests} pax)`}
+                      : `Entradas Tour (${pricing.totalGuests} pax)`}
                   </span>
                   <span className="font-medium text-white">
                     {formatMoney(pricing.baseExperienceUsd)}
@@ -1127,7 +1112,7 @@ export default function BookingWizard() {
                 </div>
 
                 <div className="flex justify-between text-stone-400">
-                  <span>IVA Turismo Costa Rica (13%)</span>
+                  <span>IVA Costa Rica (13%)</span>
                   <span>{formatMoney(pricing.ivaTaxUsd)}</span>
                 </div>
 
@@ -1146,19 +1131,18 @@ export default function BookingWizard() {
                 </div>
               </div>
 
-              {/* Badges de Confianza */}
               <div className="pt-4 border-t border-white/10 space-y-2 text-[11px] text-stone-300">
                 <div className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>Puntualidad garantizada y cancelación flexible 24h</span>
+                  <Utensils className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>Almuerzo incluido + venta de bebidas a bordo</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Wine className="w-4 h-4 text-amber-400 shrink-0" />
-                  <span>Bebidas ilimitadas y snacks gourmet incluidos</span>
+                  <Sparkles className="w-4 h-4 text-amber-400 shrink-0" />
+                  <span>Toboganes, Rampas de Clavados, Kayaks, Banana, DJ y Karaoke</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Mountain className="w-4 h-4 text-sky-400 shrink-0" />
-                  <span>Vistas panorámicas 360° al Volcán Arenal</span>
+                  <MapPin className="w-4 h-4 text-sky-400 shrink-0" />
+                  <span>Puerto San Luis, Tilarán, Guanacaste · Tel: 8471-9595</span>
                 </div>
               </div>
             </div>
